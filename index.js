@@ -8,6 +8,53 @@ var Sequelize = require("sequelize");
 var bodyParser = require("body-parser");
 var sequelize = new Sequelize("sqlite://"+__dirname+"/db/database.sqlite");
 
+var Task = sequelize.define("tasks",{
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  creator: {
+    type: Sequelize.STRING,
+    field: "first_name"
+  },
+  title: {
+    type: Sequelize.STRING,
+    field: "title"
+  },
+  complete: {
+    type: Sequelize.BOOLEAN,
+    field: "complete"
+  }
+});
+
+Task.sync({force:true}).then(function(){
+  return Task.create({
+    creator: "Mr Soon",
+    title: "This is a sample item",
+    complete: false
+  });
+}).then(function(){
+  return Task.create({
+    creator: "Mr Soon",
+    title: "I have so many to-dos, sob",
+    complete: false
+  });
+}).then(function() {
+  return Task.create({
+    creator: "Mr Soon",
+    title: "So many homeworks",
+    complete: false
+  });
+}).then(function() {
+  return Task.create({
+    creator: "Mr Soon",
+    title: "So many so many *cries*",
+    complete: false
+  });
+})
+
+
 // Express handles routing and sending webpages to the client
 var app = express();
 
