@@ -18,7 +18,8 @@ html
     .subtitle Here's a simple todo list
     form(method="post",action="/update")
       ul
-        each todo in todoList
+        each todo, index in todoList
           li
             input(type="checkbox",val=todo.id)
-            =todo.title
+            =todo.title + ", task " + index
+            
