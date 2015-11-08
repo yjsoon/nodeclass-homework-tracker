@@ -3,15 +3,18 @@ html
     script(src="/js/jquery-2.1.4.min.js")
     script(type="text/javascript").
       // A document-ready function for you!
+      var name;
       $(function(){
-      });
+        name = prompt("What's your name?");
+        $('#name').html("Hello " + name + "!");
+      });      
     link(rel="stylesheet", href="/css/style.css")
     style.
       h1 {
         color:red;
       }
   body
-    h1 Hello World!
+    h1#name Hello World!
     .subtitle Here's a simple todo list
     form(method="post",action="/update")
       ul
