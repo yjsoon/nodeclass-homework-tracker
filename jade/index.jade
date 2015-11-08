@@ -3,10 +3,11 @@ html
     script(src="/js/jquery-2.1.4.min.js")
     script(type="text/javascript").
       // A document-ready function for you!
-      var name;
       $(function(){
-        name = prompt("What's your name?");
-        $('#name').html("Hello " + name + "!");
+        $('#username').on("click", function() {
+          var name = prompt("What's your name?");
+          $(this).html(name);          
+        });
       });      
     link(rel="stylesheet", href="/css/style.css")
     style.
@@ -14,7 +15,9 @@ html
         color:red;
       }
   body
-    h1#name Hello World!
+    h1#name
+      | Hello, 
+      a#username(href="#") what's your name?
     .subtitle Here's a simple todo list
     form(method="post",action="/update")
       ul
