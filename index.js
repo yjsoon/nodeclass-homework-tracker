@@ -70,17 +70,8 @@ app.route("/").get(function(req,res,next){
   // List out everything in our database
   Task.all().then(function(data) {
       console.log(data);
+      res.end(mainPage({todoList: data }));
   })
-
-  // Add some data to mainPage, and send it to the Jade renderer
-  res.end(mainPage( {
-    todoList: [
-      {id: 1, title: "This is a sample item"},
-      {id: 2, title: "I have so many to-dos, sob"},
-      {id: 3, title: "So many homeworks"},
-      {id: 4, title: "So many so many"}
-    ]
-  }));
 
 });
 
