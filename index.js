@@ -66,6 +66,12 @@ app.route("/").get(function(req,res,next){
 
   // Gets the jade file and compiles it
   var mainPage = jade.compileFile(__dirname+"/jade/index.jade");
+
+  // List out everything in our database
+  Task.all().then(function(data) {
+      console.log(data);
+  })
+
   // Add some data to mainPage, and send it to the Jade renderer
   res.end(mainPage( {
     todoList: [
