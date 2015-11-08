@@ -23,7 +23,9 @@ app.route("/").get(function(req,res,next){
   res.end(mainPage( {
     todoList: [
       {id: 1, title: "This is a sample item"},
-      {id: 2, title: "I have so many to-dos, sob"}
+      {id: 2, title: "I have so many to-dos, sob"},
+      {id: 3, title: "So many homeworks"},
+      {id: 4, title: "So many so many"}
     ]
   }));
 
